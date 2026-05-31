@@ -160,7 +160,7 @@ export default function Home() {
     try {
       const resp = await fetch('/api/music', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lyrics, prompt: '记忆口诀歌,节奏明快,女声,朗朗上口' }),
+        body: JSON.stringify({ lyrics, prompt: '流行,女声,节奏明快' }),
       });
       const data = await resp.json();
       if (data.error) throw new Error(data.error);
