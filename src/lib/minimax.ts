@@ -41,6 +41,7 @@ export async function generateMusic(
     },
     body: JSON.stringify({
       ...req,
+      lyrics_optimizer: false,
       output_format: req.output_format ?? 'url',
       audio_setting: req.audio_setting ?? {
         sample_rate: 44100,
