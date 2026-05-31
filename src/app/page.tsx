@@ -164,8 +164,8 @@ export default function Home() {
       });
       const data = await resp.json();
       if (data.error) throw new Error(data.error);
-      setAudioUrl(data.audio_url);
-      save({ title: songTitle || '未命名', lyrics, audioUrl: data.audio_url, tags: selectedPoint?.tags || [] });
+      setAudioUrl(`/api/proxy?url=${encodeURIComponent(data.audio_url)}`);
+      save({ title: songTitle || '未命名', lyrics, audioUrl: `/api/proxy?url=${encodeURIComponent(data.audio_url)}`, tags: selectedPoint?.tags || [] });
       setStep('playing');
     } catch (e) { setError(e instanceof Error ? e.message : '生成失败'); }
     finally { setLoading(false); }
